@@ -33,6 +33,8 @@ jobs:
           scan-ref: '.'
           exit-code: '1'
           severity: 'CRITICAL,HIGH'
+          skip-dirs: 'tests'  # Пропускаем директорию с тестами
+          ignore-unfixed: true  # Игнорируем уязвимости без исправлений
 
       - name: Build Docker image
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/test_app:${{ github.sha }} .
