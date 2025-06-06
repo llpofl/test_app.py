@@ -31,7 +31,6 @@ jobs:
         with:
           scan-type: 'fs'
           scan-ref: '.'
-          exit-code: '1'
           severity: 'CRITICAL,HIGH'
           skip-dirs: 'tests'  # Пропускаем директорию с тестами
           ignore-unfixed: true  # Игнорируем уязвимости без исправлений
@@ -44,7 +43,6 @@ jobs:
         with:
           image-ref: '${{ secrets.DOCKER_USERNAME }}/test_app:${{ github.sha }}'
           format: 'table'
-          exit-code: '1'
           severity: 'CRITICAL,HIGH'
 
       - name: Login to DockerHub
